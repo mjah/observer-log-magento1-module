@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<DigitalOutlet_ObserverLog>
+			<version>0.0.2</version>
+		</DigitalOutlet_ObserverLog>
+	</modules>
+	<global>
+		<models>
+			<observerlog>
+				<class>DigitalOutlet_ObserverLog_Model</class>
+			</observerlog>
+		</models>
+		<helpers>
+			<observerlog>
+				<class>DigitalOutlet_ObserverLog_Helper</class>
+			</observerlog>
+		</helpers>
+		<events>
+			<catalog_product_save_after>
+				<observers>
+					<observerlog>
+						<class>observerlog/observer</class>
+						<method>logProductUpdate</method>
+						<type>singleton</type>
+					</observerlog>
+				</observers>
+			</catalog_product_save_after>
+			<admin_session_user_login_success>
+				<observers>
+					<observerlog>
+						<class>observerlog/observer</class>
+						<method>logLogin</method>
+						<type>singleton</type>
+					</observerlog>
+				</observers>
+			</admin_session_user_login_success>
+		</events>
+	</global>
+    <default>
+        <observerlog>
+            <general>
+                <status>0</status>   
+            </general>
+        </observerlog>
+    </default>
+</config>
